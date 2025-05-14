@@ -138,6 +138,7 @@ char *questions[120][2] = {
 {"Which element is used in the making of jewelry?", "Gold"},
 {"What is the atomic mass of Potassium?", "39.098"},
 {"Which element is used in making pencil leads?", "Graphite"},
+{},
 };
 
 
