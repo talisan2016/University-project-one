@@ -149,6 +149,20 @@ void quit_program(GtkWidget *widget, gpointer data);
 int load_elements(Element elements[]);
 
 
+void apply_global_css() {
+    GtkCssProvider *provider = gtk_css_provider_new();
+    gtk_css_provider_load_from_data(provider,
+        "* { font-size: 50px; }", -1, NULL);
+
+    gtk_style_context_add_provider_for_screen(
+        gdk_screen_get_default(),
+        GTK_STYLE_PROVIDER(provider),
+        GTK_STYLE_PROVIDER_PRIORITY_APPLICATION
+    );
+
+   g_object_unref(provider);
+}
+
 void test_quiz(GtkWidget *widget, gpointer data) {
     GtkWidget *dialog = gtk_dialog_new_with_buttons("Test Quiz", NULL, GTK_DIALOG_MODAL, "Start", GTK_RESPONSE_ACCEPT, "Close", GTK_RESPONSE_CLOSE, NULL);
     GtkWidget *content_area = gtk_dialog_get_content_area(GTK_DIALOG(dialog));
